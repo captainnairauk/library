@@ -7,17 +7,15 @@ function Book(title, author, pages, didYouread) {
     this.read = didYouread;
     this.info = function () {
         if (didYouread === "false") {
-            return `${title} by ${author}, ${pages} pages, not read yet.`
+            return `${title} by ${author}, ${pages} pages, has not been read yet.`
         }
         else if (didYouread === "true") {
-            return `${title} by ${author}, ${pages} pages, read yet.`
+            return `${title} by ${author}, ${pages} pages, has been read.`
         } else {
             return "Enter the correct spelling."
         }
     }
 }
-
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295 pages", true);
 
 function addBookToLibrary() {
     const title = prompt("Enter the title");
