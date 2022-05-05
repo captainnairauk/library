@@ -34,6 +34,7 @@ function addBookToLibrary() {
     console.log(book.info());
     myLibrary.push(book);
     console.log(myLibrary);
+    addBookToLibrary();
 }
 
 addBookToLibrary();
