@@ -31,13 +31,11 @@ function addBookToLibrary() {
 
     const didYouread = prompt("Answer in true or false");
     const didYoureadString = didYouread.toLowerCase();
-    console.log(didYouread);
-    console.log(typeof didYouread);
-    console.log(didYoureadString)
-    console.log(typeof didYoureadString);
 
     const book = new Book(titleString, authorString, pagesString, didYoureadString);
     console.log(book.info());
+    myLibrary.push(book);
+    console.log(myLibrary);
 }
 
 addBookToLibrary();
