@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </head>
+
 <body>
     <header>
         <div class="header-container">
@@ -16,12 +18,39 @@
         </div>
     </header>
 
-    <button class="addBook">+ Add book</button>
+    <div class="top">
+        <button id="addBook">+ Add book</button>
+    </div>
 
-    
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2>Add new book</h2>
+            <div class="form-element">
+                <label for="title">Title:</label>
+                <input type="text" id="title" placeholder="Enter Book's Title" required>
+            </div>
+            <div class="form-element">
+                <label for="title">Author:</label>
+                <input type="text" id="author" placeholder="Enter Author's Name" required>
+            </div>
+            <div class="form-element">
+                <label for="title">Pages:</label>
+                <input type="number" id="pages" placeholder="Enter page number" min="1" required>
+            </div>
+            <div class="form-element">
+                <label for="title">Have you read it?</label>
+                <input type="checkbox" id="readOrNot">
+            </div>
+            <div class="form-element">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        Copyright 2022 captainnairauk
+        &#169 Copyright 2022 captainnairauk
     </footer>
 </body>
+
 </html>
