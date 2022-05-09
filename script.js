@@ -59,6 +59,7 @@ const addBookToLibrary = (event) =>{
     console.log(document.getElementById("readOrNot").value);
     myLibrary.push(libBooks);
     document.forms[0].reset();
+    
 
     console.warn("added", {myLibrary});
 }
