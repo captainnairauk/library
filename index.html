@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
 
     <div class="popup">
         <div class="close-btn">&times;</div>
-        <div class="form">
+        <form action="">
             <h2>Add new book</h2>
             <div class="form-element">
                 <label for="title">Title:</label>
@@ -40,12 +39,12 @@
             </div>
             <div class="form-element">
                 <label for="title">Have you read it?</label>
-                <input type="checkbox" id="readOrNot">
+                <input type="checkbox" id="readOrNot" name="accept" value="yes">
             </div>
             <div class="form-element">
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitBtn">Submit</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <footer>
@@ -53,4 +52,5 @@
     </footer>
 </body>
 
+<script src="./script.js"></script>
 </html>

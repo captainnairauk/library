@@ -6,13 +6,11 @@ function Book(title, author, pages, didYouread) {
     this.pages = pages;
     this.read = didYouread;
     this.info = function () {
-        if (didYouread === "false") {
+        if (didYouread === false) {
             return `${title} by ${author}, ${pages} pages, has not been read yet.`
         }
-        else if (didYouread === "true") {
+        else {
             return `${title} by ${author}, ${pages} pages, has been read.`
-        } else {
-            return "Enter the correct spelling."
         }
     }
 }
@@ -47,3 +45,24 @@ document.querySelector(".popup .close-btn").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
 });
 
+const addBookToLibrary = (event) =>{
+    event.preventDefault();
+    let book = {
+        title: document.getElementById("title").value,
+        author: document.getElementById("author").value,
+        pages: document.getElementById("pages").value,
+        didYouread: document.getElementById("readOrNot").checked
+    }
+
+    const libBooks = new Book(book["title"],book["author"],book["pages"],book["didYouread"]);
+    console.log(libBooks.info());
+    console.log(document.getElementById("readOrNot").value);
+    myLibrary.push(libBooks);
+    document.forms[0].reset();
+
+    console.warn("added", {myLibrary});
+}
+
+document.addEventListener("DOMContentLoaded", () =>{
+    document.getElementById("submitBtn").addEventListener("click",addBookToLibrary);
+});
