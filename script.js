@@ -45,8 +45,11 @@ document.querySelector(".popup .close-btn").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
 });
 
+
+
 const addBookToLibrary = (event) =>{
     event.preventDefault();
+
     let book = {
         title: document.getElementById("title").value,
         author: document.getElementById("author").value,
@@ -62,6 +65,7 @@ const addBookToLibrary = (event) =>{
     
 
     console.warn("added", {myLibrary});
+    createTable();
 }
 
 document.addEventListener("DOMContentLoaded", () =>{
