@@ -36,7 +36,19 @@ body{
     cursor: pointer;
     border-radius: 5px;
 }
- 
+
+#bookList{
+    margin-top: 100px;
+}
+
+th, td{
+    border: 1px solid black;
+}
+
+td{
+    text-align: center;
+}
+
 .popup{
     position: absolute;
     top: -150%;
