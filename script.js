@@ -36,7 +36,7 @@ const addBookToLibrary = () => {
 
     const libBooks = new Book(book["title"], book["author"], book["pages"], book["didYouread"]); 
     console.log(libBooks.info());
-    console.log(document.getElementById("readOrNot").value);
+    console.log(document.getElementById("readOrNot").checked);
     document.forms[0].reset();
     selectedRow = null;
 
@@ -59,7 +59,7 @@ function insertNewRecord(data){
     cell3 = newRow.insertCell(2);
     cell3.innerHTML = data.pages;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.didYouread;
+    cell4.textContent = data.read;
     cell4 = newRow.insertCell(4);
     cell4.innerHTML = `<a onClick= "onEdit(this)" href="#">Edit</a>
                        <a onClick= "onDelete(this)" href="#">Delete</a>`;
