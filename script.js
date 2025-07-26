@@ -1,9 +1,3 @@
-function BookHolder() {
-  this.myLibrary = [];
-}
-
-const bookHolder = new BookHolder();
-
 function Book(name, author, isRead = false) {
   this.id = crypto.randomUUID();
   this.name = name;
@@ -39,23 +33,61 @@ Book.prototype.setIsRead = function (isRead) {
   this.isRead = isRead;
 };
 
+function BookHolder() {
+  this.myLibrary = [];
+}
+
+const bookHolder = new BookHolder();
+
+
 BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
   const book = new Book(name, author, isRead);
-  bookHolder.row.push(book);
+  this.myLibrary.push(book);
+  return book;
 };
 
 BookHolder.prototype.displayBookList = function () {
-  let n = bookHolder.myLibrary.length;
-  for (let i = 0; i < n; i++) {
-    let isRead = bookHolder.myLibrary[i].getIsRead();
-    
+  this.myLibrary.forEach((book, i) =>{
     console.log(
-      `Book number: ${i}, This is ${bookHolder.myLibrary[i].getName()}. I have ${
-        isRead ? "read" : "not read"
-      } this book.`
+      `Book #${i+1}: ${book.getName()} by ${book.getAuthor()} - ${book.getIsRead() ? "Read" : "Not Read"}`
     );
-  }
+  });
 };
+
+function insertRow(event){
+  event.preventDefault();
+  
+  const name = document.getElementById("name").value;
+  const author = document.getElementById("author").value;
+  const isRead = document.getElementById("isRead").checked;
+
+  const newBook = bookHolder.addBookToLibrary(name, author, isRead);
+
+  const table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+  const newRow = table.insertRow();
+  newRow.setAttribute("data-id", newBook.getId());
+
+  const nameCell = newRow.insertCell(0);
+  const authorCell = newRow.insertCell(1);
+  const readStatusCell = newRow.insertCell(2);
+  const actionCell = newRow.insertCell(3);
+
+  nameCell.innerText = newBook.getName();
+  authorCell.innerText = newBook.getAuthor();
+
+  readStatusCell.innerText = isRead ? "Read" : "Not Read";
+  readStatusCell.style.color = isRead ? "green" : "red";
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "Delete";
+  deleteBtn.onclick = function(){
+    table.deleteRow(newRow.rowIndex - 1);
+    bookHolder.myLibrary = bookHolder.myLibrary.filter(book => book.getId() !== newBook.getId());
+  };
+  actionCell.appendChild(deleteBtn);
+  closeForm();
+}
+
 
 
 function openForm(){
@@ -71,4 +103,3 @@ function closeForm(){
     form.reset();
   }
 };
-

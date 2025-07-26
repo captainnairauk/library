@@ -31,6 +31,23 @@
     text-align: center;
 }
 
+table, th, td{
+    border: 1px solid black;
+    background-color: #393f4d;
+}
+
+.book-table{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.book-table table{
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
 /* Button used to open the create book form  */
 .add-book{
     background-color: #555;
