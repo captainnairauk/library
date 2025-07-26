@@ -71,6 +71,18 @@
     outline: none;
 }
 
+/* Set a style for the create button */
+.form-container .btn{
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
 .footer{
     grid-row: 3/4;
     display: flex;
