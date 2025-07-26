@@ -56,7 +56,14 @@
     background-color: white;
 }
 
-
+/* Full width input fields */
+.form-container input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
 
 .footer{
     grid-row: 3/4;
