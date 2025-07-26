@@ -31,6 +31,18 @@
     text-align: center;
 }
 
+/* Button used to open the create book form  */
+.add-book{
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    width: 280px;
+}
+
+
 .footer{
     grid-row: 3/4;
     display: flex;
