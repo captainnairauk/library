@@ -1,4 +1,8 @@
-const myLibrary = [];
+function BookHolder() {
+  this.row = [];
+}
+
+const bookHolder = new BookHolder();
 
 function Book(name, author, isRead = false) {
   this.id = crypto.randomUUID();
@@ -30,12 +34,6 @@ Book.prototype.getIsRead = function () {
 Book.prototype.setIsRead = function (isRead) {
   this.isRead = isRead;
 };
-
-function BookHolder() {
-  this.row = [];
-}
-
-const bookHolder = new BookHolder();
 
 BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
   const book = new Book(name, author, isRead);
