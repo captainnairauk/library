@@ -88,6 +88,11 @@
     background-color: red;
 }
 
+/* Add some hove effects to button */
+.form-container .btn:hover, .add-book:hover{
+    opacity: 1;
+}
+
 .footer{
     grid-row: 3/4;
     display: flex;
