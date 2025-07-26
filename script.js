@@ -56,3 +56,19 @@ BookHolder.prototype.displayBookList = function () {
     );
   }
 };
+
+
+function openForm(){
+  document.getElementById("myForm").style.display = "block";
+};
+
+function closeForm(){
+  const popup = document.getElementById("myForm");
+  popup.style.display = "none";
+  
+  const form = popup.querySelector("form");
+  if(form){
+    form.reset();
+  }
+};
+
