@@ -42,6 +42,12 @@
     width: 280px;
 }
 
+/* The popup form hidden by default */
+.form-popup{
+    display: none;
+    border: 3px solid #f1f1f1;
+}
+
 
 .footer{
     grid-row: 3/4;
