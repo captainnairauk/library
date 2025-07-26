@@ -1,5 +1,5 @@
 function BookHolder() {
-  this.row = [];
+  this.myLibrary = [];
 }
 
 const bookHolder = new BookHolder();
@@ -45,12 +45,12 @@ BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
 };
 
 BookHolder.prototype.displayBookList = function () {
-  let n = bookHolder.row.length;
+  let n = bookHolder.myLibrary.length;
   for (let i = 0; i < n; i++) {
-    let isRead = bookHolder.row[i].getIsRead();
+    let isRead = bookHolder.myLibrary[i].getIsRead();
     
     console.log(
-      `Book number: ${i}, This is ${bookHolder.row[i].getName()}. I have ${
+      `Book number: ${i}, This is ${bookHolder.myLibrary[i].getName()}. I have ${
         isRead ? "read" : "not read"
       } this book.`
     );
