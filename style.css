@@ -65,6 +65,12 @@
     background: #f1f1f1;
 }
 
+/* When the inputs get focus do something */
+.form-container input[text=text]:focus{
+    background-color: #ddd;
+    outline: none;
+}
+
 .footer{
     grid-row: 3/4;
     display: flex;
