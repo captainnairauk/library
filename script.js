@@ -11,6 +11,10 @@ function Book(name, author, isRead = false) {
   this.isRead = isRead;
 }
 
+Book.prototype.getId = function(){
+  return this.id;
+};
+
 Book.prototype.getName = function () {
   return this.name;
 };
