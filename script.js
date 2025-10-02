@@ -1,41 +1,3 @@
-/*
-function Book(name, author, isRead = false) {
-  this.id = crypto.randomUUID();
-  this.name = name;
-  this.author = author;
-  this.isRead = isRead;
-}
-
-Book.prototype.getId = function(){
-  return this.id;
-};
-
-Book.prototype.getName = function () {
-  return this.name;
-};
-
-Book.prototype.setName = function (name) {
-  this.name = name;
-};
-
-Book.prototype.getAuthor = function () {
-  return this.author;
-};
-
-Book.prototype.setAuthor = function (author) {
-  this.author = author;
-};
-
-Book.prototype.getIsRead = function () {
-  return this.isRead;
-};
-
-Book.prototype.setIsRead = function (isRead) {
-  this.isRead = isRead;
-};
-
-*/
-
 class Book {
   #id;
 
@@ -103,31 +65,6 @@ class BookHolder{
 const bookHolder = new BookHolder();
 
 
-/*
-function BookHolder() {
-  this.myLibrary = [];
-}
-
-
-BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
-  const book = new Book(name, author, isRead);
-  this.myLibrary.push(book);
-  return book;
-};
-
-BookHolder.prototype.displayBookList = function () {
-  this.myLibrary.forEach((book, i) => {
-    console.log(
-      `Book #${i + 1}: ${book.getName()} by ${book.getAuthor()} - ${
-        book.getIsRead() ? "Read" : "Not Read"
-      }`
-    );
-  });
-};
-
-*/
-
-
 function insertRow(event) {
   event.preventDefault();
 
@@ -157,9 +94,9 @@ function insertRow(event) {
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "Delete";
   deleteBtn.onclick = function () {
-    const bookId = parseInt(newBook.getAttribute("data-id"));
+    const bookId = newRow.getAttribute("data-id");
     bookHolder.removeBookById(bookId);
-    table.deleteRow(newRow.rowIndex);
+    newRow.remove();
   };
   actionCell.appendChild(deleteBtn);
   closeForm();
