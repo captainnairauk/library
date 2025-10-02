@@ -151,16 +151,15 @@ function insertRow(event) {
   nameCell.innerText = newBook.getName();
   authorCell.innerText = newBook.getAuthor();
 
-  readStatusCell.innerText = isRead ? "Read" : "Not Read";
-  readStatusCell.style.color = isRead ? "green" : "red";
+  readStatusCell.innerText = newBook.getIsRead() ? "Read" : "Not Read";
+  readStatusCell.style.color = newBook.getIsRead() ? "green" : "red";
 
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "Delete";
   deleteBtn.onclick = function () {
-    table.deleteRow(newRow.rowIndex - 1);
-    bookHolder.myLibrary = bookHolder.myLibrary.filter(
-      (book) => book.getId() !== newBook.getId()
-    );
+    const bookId = parseInt(newBook.getAttribute("data-id"));
+    bookHolder.removeBookById(bookId);
+    table.deleteRow(newRow.rowIndex);
   };
   actionCell.appendChild(deleteBtn);
   closeForm();
