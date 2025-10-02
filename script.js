@@ -1,3 +1,4 @@
+/*
 function Book(name, author, isRead = false) {
   this.id = crypto.randomUUID();
   this.name = name;
@@ -33,12 +34,52 @@ Book.prototype.setIsRead = function (isRead) {
   this.isRead = isRead;
 };
 
+*/
+
+class Book {
+  #id;
+
+  constructor(name, author, isRead = false) {
+    this.#id = crypto.randomUUID();
+    this.name = name;
+    this.author = author;
+    this.isRead = isRead;
+  }
+
+  getId(){
+    return this.#id;
+  }
+
+  getName(){
+    return this.name;
+  }
+
+  setName(name){
+    this.name = name;
+  }
+
+  getAuthor(){
+    return this.author;
+  }
+
+  setAuthor(author){
+    this.author = author;
+  }
+
+  getIsRead(){
+    return this.isRead;
+  }
+
+  setIsRead(isRead){
+    this.isRead = isRead;
+  }
+}
+
 function BookHolder() {
   this.myLibrary = [];
 }
 
 const bookHolder = new BookHolder();
-
 
 BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
   const book = new Book(name, author, isRead);
@@ -47,23 +88,27 @@ BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
 };
 
 BookHolder.prototype.displayBookList = function () {
-  this.myLibrary.forEach((book, i) =>{
+  this.myLibrary.forEach((book, i) => {
     console.log(
-      `Book #${i+1}: ${book.getName()} by ${book.getAuthor()} - ${book.getIsRead() ? "Read" : "Not Read"}`
+      `Book #${i + 1}: ${book.getName()} by ${book.getAuthor()} - ${
+        book.getIsRead() ? "Read" : "Not Read"
+      }`
     );
   });
 };
 
-function insertRow(event){
+function insertRow(event) {
   event.preventDefault();
-  
+
   const name = document.getElementById("name").value;
   const author = document.getElementById("author").value;
   const isRead = document.getElementById("isRead").checked;
 
   const newBook = bookHolder.addBookToLibrary(name, author, isRead);
 
-  const table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+  const table = document
+    .getElementById("myTable")
+    .getElementsByTagName("tbody")[0];
   const newRow = table.insertRow();
   newRow.setAttribute("data-id", newBook.getId());
 
@@ -80,26 +125,26 @@ function insertRow(event){
 
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "Delete";
-  deleteBtn.onclick = function(){
+  deleteBtn.onclick = function () {
     table.deleteRow(newRow.rowIndex - 1);
-    bookHolder.myLibrary = bookHolder.myLibrary.filter(book => book.getId() !== newBook.getId());
+    bookHolder.myLibrary = bookHolder.myLibrary.filter(
+      (book) => book.getId() !== newBook.getId()
+    );
   };
   actionCell.appendChild(deleteBtn);
   closeForm();
 }
 
-
-
-function openForm(){
+function openForm() {
   document.getElementById("myForm").style.display = "block";
-};
+}
 
-function closeForm(){
+function closeForm() {
   const popup = document.getElementById("myForm");
   popup.style.display = "none";
-  
+
   const form = popup.querySelector("form");
-  if(form){
+  if (form) {
     form.reset();
   }
-};
+}
