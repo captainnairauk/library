@@ -75,11 +75,39 @@ class Book {
   }
 }
 
+class BookHolder{
+  constructor(){
+    this.myLibrary = [];
+  }
+
+  addBookToLibrary(name, author, isRead){
+    const book = new Book(name, author, isRead);
+    this.myLibrary.push(book);
+    return book;
+  }
+
+  displayBookList(){
+    this.myLibrary.forEach((book, i) =>{
+      console.log(
+        `Book #${i + 1}: ${book.getName()} by ${book.getAuthor()} - ${
+          book.getIsRead() ? "Read" : "Not Read"}`
+      );
+    });
+  }
+
+  removeBookById(bookId){
+    this.myLibrary = this.myLibrary.filter((book) => book.getId() !== bookId);
+  }
+}
+
+const bookHolder = new BookHolder();
+
+
+/*
 function BookHolder() {
   this.myLibrary = [];
 }
 
-const bookHolder = new BookHolder();
 
 BookHolder.prototype.addBookToLibrary = function (name, author, isRead) {
   const book = new Book(name, author, isRead);
@@ -96,6 +124,9 @@ BookHolder.prototype.displayBookList = function () {
     );
   });
 };
+
+*/
+
 
 function insertRow(event) {
   event.preventDefault();
